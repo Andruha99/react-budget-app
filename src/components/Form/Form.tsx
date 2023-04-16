@@ -27,8 +27,9 @@ export const Form = () => {
       })}/>
       {errors.enterName && <ErrorMessage>{errors.enterName.message}</ErrorMessage>}
 
-      <StyledInput placeholder="enter cost ..." type="text" {...register("enterCost", {
+      <StyledInput placeholder="enter cost ..." type="number" {...register("enterCost", {
         required: true,
+        valueAsNumber: true,
         maxLength: { value: 5, message: "Max price is 99999"}
       })}/>
       {errors.enterCost && <ErrorMessage>{errors.enterCost.message}</ErrorMessage>}
