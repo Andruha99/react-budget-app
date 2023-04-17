@@ -1,10 +1,10 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { ExpenseItemProps } from "../../types";
+import { Expense } from "../../types";
 
 interface ExpensesContextState {
-    expenses: ExpenseItemProps[];
-    deleteExpense: (id: number) => void;
-    addExpense: (expense: ExpenseItemProps) => void
+    expenses: Expense[];
+    deleteExpense: (id: string) => void;
+    addExpense: (expense: Expense) => void
 }
 
 interface ExpensesContextProviderProps {
@@ -17,13 +17,13 @@ const useExpensesContextValue = () => {
     const [expensesValue, setExpensesValue] = useState<ExpensesContextState>(() => {
         return {
             expenses: [],
-            deleteExpense: (id: number) => {
+            deleteExpense: (id: string) => {
                 setExpensesValue((context) => ({
                     ...context, 
                     expenses: context.expenses.filter((exp) => exp.id !== id),
                 }));
             },
-            addExpense: (expense: ExpenseItemProps) => {
+            addExpense: (expense: Expense) => {
                 setExpensesValue((context) => ({
                     ...context,
                     expenses: [...context.expenses, expense],
@@ -38,5 +38,7 @@ const useExpensesContextValue = () => {
 export const useExpensesContext = () => useContext(ExpensesContext);
 
 export const ExpensesContextProvider = ({ children }: ExpensesContextProviderProps) => {
-    return <ExpensesContext.Provider value={useExpensesContextValue()}>{children}</ExpensesContext.Provider>;
+    return <ExpensesContext.Provider value={useExpensesContextValue()}>
+                {children}
+            </ExpensesContext.Provider>;
 }

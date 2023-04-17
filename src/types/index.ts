@@ -1,5 +1,7 @@
-export interface ExpenseItemProps {
-    id: number,
-    name: string,
-    cost: number
+interface Expense {
+    id: string;
+    name: string;
+    cost: string;
 }
+
+export type { Expense };
