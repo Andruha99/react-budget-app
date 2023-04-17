@@ -1,12 +1,21 @@
 import { useExpensesContext } from "../../context/ExensesContext/ExpensesContext";
+import { Expense } from "../../types";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
 
-export const ExpensesList = () => {
+interface ExpensesListProps {
+    filterExpences: string;
+}
+
+export const ExpensesList = ({ filterExpences }: ExpensesListProps) => {
     const { expenses } = useExpensesContext();
-    console.log(expenses);
+
+    const filterData = expenses.filter((expense) => {
+        return expense.name.toLowerCase().includes(filterExpences)
+    })
+    
     return (
         <div>
-            {expenses.map((expense) => {
+            {filterData.map((expense) => {
                 return <ExpensesItem expense={expense} key={expense.id}/>
             })}
         </div>

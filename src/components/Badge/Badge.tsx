@@ -1,5 +1,5 @@
 import React from "react"
-import { useExpensesContext } from "../../context/ExensesContext/ExpensesContext"
+import { StyledBadge } from "./styles";
 
 interface BadgeProps {
     cost: string;
@@ -7,6 +7,6 @@ interface BadgeProps {
 
 export const Badge = ({cost}: BadgeProps) => {
     return (
-        <div>{cost}</div>
+        <StyledBadge>{cost}</StyledBadge>
     )
 }
