@@ -7,6 +7,7 @@ import { Budget } from "./components/Budget/Budget";
 export const App = () => {
   return (
     <Wrapper>
+      <h2>Budget App</h2>
       <Budget />
       <Expenses />
       <Form />
