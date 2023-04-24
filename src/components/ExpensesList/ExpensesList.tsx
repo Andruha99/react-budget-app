@@ -1,5 +1,4 @@
 import { useExpensesContext } from "../../context/ExensesContext/ExpensesContext";
-import { Expense } from "../../types";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
 
 interface ExpensesListProps {
