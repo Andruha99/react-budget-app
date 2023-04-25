@@ -4,7 +4,7 @@ This project built with React. The main goal of this app is calculate and track 
 
 ## Overview
 
-[Overview](https://github.com/Andruha99/react-budget-app/blob/main/overview/react-budget-app.png).
+![Overview](https://github.com/Andruha99/react-budget-app/blob/main/overview/react-budget-app.png).
 
 ## Used technologies
 
