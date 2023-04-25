@@ -1,5 +1,6 @@
 import { useExpensesContext } from "../../context/ExensesContext/ExpensesContext";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
+import { EmptyExpense } from "./styles";
 
 interface ExpensesListProps {
   filterExpences: string;
@@ -14,9 +15,13 @@ export const ExpensesList = ({ filterExpences }: ExpensesListProps) => {
 
   return (
     <div>
-      {filterData.map((expense) => {
-        return <ExpensesItem expense={expense} key={expense.id} />;
-      })}
+      {filterData.length > 0 ? (
+        filterData.map((expense) => {
+          return <ExpensesItem expense={expense} key={expense.id} />;
+        })
+      ) : (
+        <EmptyExpense>Oooops 🙈</EmptyExpense>
+      )}
     </div>
   );
 };
